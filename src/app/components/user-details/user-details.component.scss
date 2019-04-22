@@ -1,0 +1,26 @@
+mat-card {
+    max-width: 80%;
+    margin: 10%
+}
+
+mat-card-header {
+    height: 120px;
+    margin-bottom: 3%;
+    justify-content: center;
+}
+
+mat-card-header img {
+    width: 120px;
+    height: 100%;
+}
+
+.card-titles-wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+mat-card-actions {
+    text-align: center;
+}

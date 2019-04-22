@@ -1,0 +1,45 @@
+<mat-card class="user-card">
+  <mat-card-header>
+    <img mat-card-avatar class="avatar" src="{{ data.avatar_url }}" alt="{{ data.login }} Avatar">
+    <div class="card-titles-wrapper">
+      <mat-card-title>{{ data.login }}</mat-card-title>
+      <mat-card-subtitle>{{ data.name }}</mat-card-subtitle>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        <p><strong>ID:</strong> {{ data.id }}</p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <p><strong>Type:</strong> {{ data.type }}</p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <p><strong>Company:</strong> {{ data.company || "N/A" }}</p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <p><strong>Location:</strong> {{ data.location || "N/A" }}</p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <p><strong>Email:</strong> {{ data.email || "N/A" }}</p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <p><strong>Bio:</strong> {{ data.bio || "N/A" }}</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-raised-button href="{{ data.html_url }}" target="_blank">Profile</a>
+    <a mat-raised-button href="{{ data.html_url }}?tab=repositories" target="_blank">Repositories</a>
+    <a mat-raised-button href="{{ data.html_url }}?tab=projects" target="_blank">Projects</a>
+    <a mat-raised-button matBadge="{{ data.followers }}" matBadgePosition="after" matBadgeColor="primary"
+      href="{{ data.html_url }}?tab=followers" target="_blank">Followers</a>
+    <a mat-raised-button matBadge="{{ data.following }}" matBadgePosition="after" matBadgeColor="primary"
+      href="{{ data.html_url }}?tab=following" target="_blank">Following</a>
+  </mat-card-actions>
+</mat-card>

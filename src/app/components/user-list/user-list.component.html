@@ -1,0 +1,42 @@
+<div class="list-wrapper">
+  <mat-form-field>
+    <input matInput (keyup)="filterData( $event.target.value )" placeholder="Filter">
+  </mat-form-field>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="avatar">
+      <mat-header-cell *matHeaderCellDef>Avatar</mat-header-cell>
+      <mat-cell *matCellDef="let user">
+        <img [src]="user.avatar_url" width="40" height="40" />
+      </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef>Username</mat-header-cell>
+      <mat-cell *matCellDef="let user">
+        <strong>{{ user.login }}</strong>
+      </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{ user.type }}</mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="details">
+      <mat-header-cell *matHeaderCellDef>Details</mat-header-cell>
+      <mat-cell *matCellDef="let user">
+        <a mat-raised-button routerLink="/user/{{ user.login }}">Details</a>
+      </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="profile_btn">
+      <mat-header-cell *matHeaderCellDef>GitHub Profile</mat-header-cell>
+      <mat-cell *matCellDef="let user">
+        <a mat-raised-button href="{{ user.html_url }}" target="_blank">Link</a>
+      </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
